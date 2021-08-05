@@ -9,10 +9,10 @@ public class Spawners : MonoBehaviour
     GameObject unit;
 
     [SerializeField]
-    string spawnLocationTag;
+    List<Stats> stat;
 
     [SerializeField]
-    Parser statlist;
+    string spawnLocationTag;
 
     [SerializeField]
     GameObject spawningLocation;
@@ -26,6 +26,8 @@ public class Spawners : MonoBehaviour
     {
         spawningLocation = GameObject.FindGameObjectWithTag(spawnLocationTag);
         thisinfo = GetComponent<GOInfo>();
+
+
         StartCoroutine(spawnTimer());
     }
 
@@ -34,7 +36,7 @@ public class Spawners : MonoBehaviour
         while (true) 
         { 
             yield return new WaitForSeconds(5f);
-            int randomIntfortesting = Random.Range(0, 3);
+            int randomIntfortesting = Random.Range(0, stat.Count);
             SpawnUnit(spawningLocation.transform.position, spawningLocation.transform.rotation, randomIntfortesting);
         }
     }
@@ -42,25 +44,15 @@ public class Spawners : MonoBehaviour
     void SpawnUnit(Vector3 location, Quaternion rotation, int unitType)
 	{
         GameObject refUnit = Instantiate(unit, location, rotation);
-        Stats unitStats = refUnit.GetComponent<Stats>();
-        unitStats.unitName = statlist.unitName[unitType];
-        unitStats.maxHealth = statlist.maxHealth[unitType];
-        unitStats.curHealth = unitStats.maxHealth;
-        unitStats.armor = statlist.armor[unitType];
-        unitStats.damage = statlist.damage[unitType];
-        unitStats.range = statlist.range[unitType];
-        unitStats.attackspeed = statlist.attackSpeed[unitType];
-        unitStats.movementspeed = statlist.movementSpeed[unitType];
-        unitStats.updateStats();
-        refUnit.name = unitStats.name;
-
-        UnitController unitcontroller = refUnit.GetComponent<UnitController>();
-        unitcontroller.navTargets = wayPoints.ToList();
-        //unitcontroller.faction = faction;
 
         GOInfo baseInfo = refUnit.GetComponent<GOInfo>();
+        baseInfo.stats = stat[unitType];
         baseInfo.faction = thisinfo.faction;
+        baseInfo.StartingStats();
+
+        UnitController unitcontroller = refUnit.GetComponent<UnitController>();
         unitcontroller.setInfo();
+        unitcontroller.navTargets = wayPoints.ToList();
 
     }
 }

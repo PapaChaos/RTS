@@ -29,9 +29,13 @@ public class UnitController : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
 
-
-        if (navTargets.Count < 1)
+        
+        if (navTargets.Count > 0)
             moveToLocation(navTargets[0].transform.position);
+		else
+		{
+            task = Task.Idling;
+		}
     }
 	void Update()
 	{
