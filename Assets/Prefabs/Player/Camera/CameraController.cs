@@ -75,18 +75,25 @@ public class CameraController : MonoBehaviour
 
             if (playerInput.actions["MousePress"].ReadValue<float>() > 0)
             {
-                Debug.Log("Button Pressed! Value: " + playerInput.actions["MousePress"].ReadValue<float>());
-
-                //PressLoc = new Vector3(playerInput.actions["MousePointerLocation"].ReadValue<Vector2>().x, 0f, playerInput.actions["MousePointerLocation"].ReadValue<Vector2>().y);
-
                 RaycastHit hit;
                 Ray ray = camera.ScreenPointToRay(playerInput.actions["MousePointerLocation"].ReadValue<Vector2>());
 
-                if(Physics.Raycast(ray, out hit))
+
+                if (Physics.Raycast(ray, out hit))
 				{
-                    Debug.DrawLine(camera.transform.position, hit.point, Color.red, 5f);
+                    //Debug.DrawLine(camera.transform.position, hit.point, Color.red, 5f);
                     PlayerUnit.GetComponent<UnitController>().targetLocation = hit.point;
-                    Debug.Log("Location pressed: " + hit.point);
+					if (hit.transform.gameObject.GetComponent<ResourceNode>())
+					{
+                        float dist = Vector3.Distance(PlayerUnit.transform.position, hit.transform.position);
+                        if(dist < 15f)
+						{
+                            GOInfo GOI = GetComponent<GOInfo>();
+                            GOInfo hitGOI = hit.transform.gameObject.GetComponent<GOInfo>();
+                            hitGOI.faction = GOI.faction;
+                            hitGOI.updateMaterials();
+                        }
+					}
                 }
 			}
 		}

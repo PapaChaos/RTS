@@ -5,8 +5,11 @@ using UnityEngine.UI;
 public class UI_FactionInfo : MonoBehaviour
 {
     [SerializeField]
-    Text metalText, metalGainText;
-
+    Text metalText, metalGainText, squadCost, oilText, oilGainText;
+    [SerializeField]
+    Button Squad, Research, Trooper, Sniper, Mecha;
+    [SerializeField]
+    Canvas SquadMenu, ResearchMenu;
     public FactionResources factionResources;
 
     [SerializeField]
@@ -39,8 +42,11 @@ public class UI_FactionInfo : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
-        metalText.text = "Metal:"+factionResources.metal.ToString();
+        metalText.text = "Metal: "+factionResources.metal.ToString();
         metalGainText.text = "Metal Gain: +"+factionResources.metalGain.ToString();
+        oilText.text = "Oil: " + factionResources.oil.ToString();
+        oilGainText.text = "Oil Gain: +" + factionResources.oilGain.ToString();
+        squadCost.text = "Squad Cost: +" + factionResources.squadCost;
 
         if(!factionResources)
 		{
@@ -56,4 +62,8 @@ public class UI_FactionInfo : MonoBehaviour
             losewin.text = win;
 		}
     }
+    public void SquadMenuVisibility()
+	{
+        SquadMenu.enabled = !SquadMenu.enabled;
+	}
 }

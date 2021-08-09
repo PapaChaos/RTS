@@ -5,5 +5,5 @@ using UnityEngine;
 public class ResourceNode : MonoBehaviour
 {
 	public int metalGain, oilGain;
-
+	float captureTime = 5f;
 }

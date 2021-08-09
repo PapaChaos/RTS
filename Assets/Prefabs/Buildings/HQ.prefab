@@ -115,13 +115,18 @@ MonoBehaviour:
   faction: 1
   owner: 0
   stats: {fileID: 0}
+  facMaterial:
+  - {fileID: -8771166627424403242, guid: b67a67cb9b2e5cd4bac7c09e6021e262, type: 3}
+  - {fileID: 2100000, guid: ed1d472f6fc10a44b99bcf45fa36dca8, type: 2}
+  - {fileID: 2100000, guid: 534762e3788732949a767fd0974b1876, type: 2}
+  - {fileID: -8771166627424403242, guid: b67a67cb9b2e5cd4bac7c09e6021e262, type: 3}
   attackable: 1
   range: 0
   attackspeed: 0
   movementspeed: 0
-  curHealth: 2000
-  maxHealth: 2000
-  armor: 0
+  curHealth: 20000
+  maxHealth: 20000
+  armor: 10
   damage: 0
 --- !u!114 &5223731973738024065
 MonoBehaviour:
@@ -140,6 +145,12 @@ MonoBehaviour:
   oil: 0
   oilGain: 0
   metalCost: 0
+  squad:
+  - {fileID: 11400000, guid: c44b8ae22b24b9744a33a7c9aee5b65b, type: 2}
+  - {fileID: 11400000, guid: c44b8ae22b24b9744a33a7c9aee5b65b, type: 2}
+  - {fileID: 11400000, guid: c44b8ae22b24b9744a33a7c9aee5b65b, type: 2}
+  - {fileID: 11400000, guid: 6a4bc2175f8055a4a8cf9881ecdeef8c, type: 2}
+  squadCost: 0
   spawners: []
 --- !u!114 &-846052661742855289
 MonoBehaviour:
@@ -153,8 +164,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb606b6a9c9562a4490a80a34f39bf86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unit: {fileID: 919132149155446097, guid: ce1a71a3608845840879af1774794db1, type: 3}
+  unit: {fileID: 9013886525776015003, guid: f90e661c3dbfaab4fb70d3fea06a55d8, type: 3}
   spawningLocation: {fileID: 0}
-  wayPoints: []
   playerSpawner: 1
-  squad: []
+  playerUnit: {fileID: 0}
+  wayPoints: []
+  squad:
+  - {fileID: 11400000, guid: bc504001ac304f740bee4afd80115e03, type: 2}

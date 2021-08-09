@@ -6,6 +6,8 @@ using System.Linq;
 public class FactionResources : MonoBehaviour
 {
     public int metal, metalGain, oil, oilGain, metalCost;
+    public List<Stats> squad;
+    public int squadCost;
     public List<Spawners> spawners;
     float resourceTickTime = 2f;
     List<ResourceNode> resourceNodes;
@@ -37,25 +39,37 @@ public class FactionResources : MonoBehaviour
 
     void SpawnUnits()
 	{
-        if(metal >= metalCost)
-		{
-            metal -= metalCost;
+        squadCost = 0;
+        if (spawners.Count > 0)
+        {
 
-			foreach (Spawners spawner in spawners)
-			{
-				if (spawner)
-				{
-                    StartCoroutine(spawner.SpawnSquad());
+            foreach (Stats unit in squad)
+            {
+                squadCost += unit.cost;
+
+            }
+
+            if (metal >= squadCost)
+            {
+                metal -= squadCost;
+
+                foreach (Spawners spawner in spawners)
+                {
+                    if (spawner)
+                    {
+                        spawner.squad = squad;
+                        StartCoroutine(spawner.SpawnSquad());
+                    }
                 }
-			}
 
-		}
+            }
+        }
 	}
 	private void Update()
 	{
         ResourceUpdate();
 	}
-	void ResourceUpdate()
+	public void ResourceUpdate()
 	{
         metalGain = 5;
         oilGain = 0;

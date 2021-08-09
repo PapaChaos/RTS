@@ -50,6 +50,7 @@ public class Spawners : MonoBehaviour
 	{
         SpawnUnit(spawningLocation.transform.position, spawningLocation.transform.rotation, squad[0]);
 	}
+
     void SpawnUnit(Vector3 location, Quaternion rotation, Stats unitType)
 	{
         GameObject refUnit = Instantiate(unit, location, rotation);

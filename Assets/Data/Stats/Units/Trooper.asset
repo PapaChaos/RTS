@@ -18,6 +18,7 @@ MonoBehaviour:
   maxHealth: 50
   armor: 5
   damage: 5
+  cost: 25
   range: 10
   attackspeed: 1
   movementspeed: 35

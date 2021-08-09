@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4928356261004056786}
   - component: {fileID: 4271367134833349348}
   m_Layer: 0
-  m_Name: RN_Metal
+  m_Name: ResourceNode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,7 +100,12 @@ MonoBehaviour:
   faction: 0
   owner: 2
   stats: {fileID: 0}
-  attackable: 1
+  facMaterial:
+  - {fileID: -8771166627424403242, guid: b67a67cb9b2e5cd4bac7c09e6021e262, type: 3}
+  - {fileID: 2100000, guid: 96155d69cc4099e4eb506482ce3cace7, type: 2}
+  - {fileID: 2100000, guid: 534762e3788732949a767fd0974b1876, type: 2}
+  - {fileID: -8771166627424403242, guid: b67a67cb9b2e5cd4bac7c09e6021e262, type: 3}
+  attackable: 0
   range: 0
   attackspeed: 0
   movementspeed: 0

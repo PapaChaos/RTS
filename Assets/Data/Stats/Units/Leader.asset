@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1eb8245cb8e220468f962570e15fd31, type: 3}
-  m_Name: Mecha
+  m_Name: Leader
   m_EditorClassIdentifier: 
   typeofobject: 0
-  name: Mecha
-  mesh: {fileID: 7684625086359004581, guid: ce1a71a3608845840879af1774794db1, type: 3}
+  name: Leader
+  mesh: {fileID: 7684625086359004581, guid: 097189b34764bf44780cda66867d36ff, type: 3}
   maxHealth: 100
-  armor: 10
+  armor: 8
   damage: 10
-  cost: 50
-  range: 10
+  cost: 0
+  range: 15
   attackspeed: 1
-  movementspeed: 20
+  movementspeed: 30

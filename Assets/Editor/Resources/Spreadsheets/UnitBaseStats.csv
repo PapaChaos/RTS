@@ -1,6 +1,5 @@
-Name,,Hitpoints,Armor,Damage,Range,Attack Speed,Movement Speed
-Trooper,,50,5,5,10,1,3.5
-Sniper,,25,3,10,20,2,1
-This is to test parsing errors,,5,2,,,,
-This is to test another parsing error,,3,4,,,,
-Mecha,,100,10,10,10,1,2
+Name,Mesh,Hitpoints,Armor,Damage,Range,Attack Speed,Movement Speed,Cost
+Trooper,,50,5,5,10,1,3.5,25
+Sniper,,25,3,10,25,2,3,25
+Mecha,,100,10,10,10,1,2,50
+Leader,,100,8,10,15,1,3,0

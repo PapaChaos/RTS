@@ -50,17 +50,19 @@ public class ParserWindow : EditorWindow
                 float rng = 0;
                 float ats = 1;
                 float ms = 3;
+                float uc = 0;
 
                 string errorName = col[0];
 
                 //Ternary Operator looks smoother and cleaner imo.
                 bool parse = true ==
-                float.TryParse(col[1], out hp) &&
-                float.TryParse(col[2], out ar) &&
-                float.TryParse(col[3], out dmg) &&
-                float.TryParse(col[4], out rng) &&
-                float.TryParse(col[5], out ats) &&
-                float.TryParse(col[6], out ms)
+                float.TryParse(col[2], out hp) &&
+                float.TryParse(col[3], out ar) &&
+                float.TryParse(col[4], out dmg) &&
+                float.TryParse(col[5], out rng) &&
+                float.TryParse(col[6], out ats) &&
+                float.TryParse(col[7], out ms) &&
+                float.TryParse(col[8], out uc)
                 ;
 
                 if (parse)
@@ -73,6 +75,7 @@ public class ParserWindow : EditorWindow
                     stat.range = rng;
                     stat.attackspeed = ats;
                     stat.movementspeed = ms;
+                    stat.cost = (int)uc;
                     stat.generateAsset(stat);
 
                 }

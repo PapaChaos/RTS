@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,6 +11,7 @@ public class GOInfo : MonoBehaviour
     public Owner owner;
     public Stats stats;
 	NavMeshAgent NAVAgent;
+	public List<Material> facMaterial;
 
 	public bool attackable = true;
 
@@ -35,7 +37,7 @@ public class GOInfo : MonoBehaviour
 	private void Awake()
 	{
 		NAVAgent = GetComponent<NavMeshAgent>();
-
+		updateMaterials();
 	}
 
 
@@ -51,6 +53,7 @@ public class GOInfo : MonoBehaviour
 		MeshFilter mesh = GetComponent<MeshFilter>();
 		mesh.mesh = stats.mesh;
 		updateStats();
+		updateMaterials();
 	}
 	public void updateStats() //This is to make sure all necessary components change acording to stat updates.
 	{
@@ -70,8 +73,34 @@ public class GOInfo : MonoBehaviour
 			Destroy(gameObject);
 		}
 	}
+	void Update()
+	{
+		updateMaterials();
+	}
+	public void updateMaterials()
+	{
+		Renderer renderer = GetComponent<Renderer>();
+		if (renderer)
+		{
+			Material[] mats = new Material[renderer.materials.Length];
+			for (int i = 0; i < renderer.materials.Length; i++)
+			{
 
+				if (owner != Owner.player)
+				{
+					Material facmat = new Material(facMaterial[(int)faction]);
+					mats[i] = facmat;
+				}
 
+				if (owner == Owner.player)
+				{
+					Material facmat = new Material(facMaterial[4]);
+					mats[i] = facmat;
+				}
+			}
+			renderer.materials = mats;
+		}
+	}
 
 
 }

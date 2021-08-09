@@ -20,7 +20,7 @@ public class Stats : ScriptableObject
 
 	public new string name;
 	public Mesh mesh;
-	public int maxHealth, armor, damage;
+	public int maxHealth, armor, damage, cost;
 	public float range, attackspeed, movementspeed;
 
 

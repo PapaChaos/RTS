@@ -58,6 +58,12 @@ MonoBehaviour:
   faction: 1
   owner: 0
   stats: {fileID: 0}
+  facMaterial:
+  - {fileID: -8771166627424403242, guid: b67a67cb9b2e5cd4bac7c09e6021e262, type: 3}
+  - {fileID: 2100000, guid: ed1d472f6fc10a44b99bcf45fa36dca8, type: 2}
+  - {fileID: 2100000, guid: 534762e3788732949a767fd0974b1876, type: 2}
+  - {fileID: -8771166627424403242, guid: b67a67cb9b2e5cd4bac7c09e6021e262, type: 3}
+  attackable: 1
   range: 0
   attackspeed: 0
   movementspeed: 0
@@ -134,6 +140,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 9013886525776015003, guid: f90e661c3dbfaab4fb70d3fea06a55d8, type: 3}
   spawningLocation: {fileID: 0}
+  playerSpawner: 0
+  playerUnit: {fileID: 0}
   wayPoints: []
   squad:
   - {fileID: 11400000, guid: c44b8ae22b24b9744a33a7c9aee5b65b, type: 2}
