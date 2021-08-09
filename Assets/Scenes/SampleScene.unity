@@ -766,6 +766,7 @@ GameObject:
   - component: {fileID: 963194229}
   - component: {fileID: 963194230}
   - component: {fileID: 963194231}
+  - component: {fileID: 963194232}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -852,6 +853,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panSpeed: 150
   deviceType: 0
+  playerInput: {fileID: 963194232}
   debug: 0
 --- !u!114 &963194230
 MonoBehaviour:
@@ -930,6 +932,36 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   priority: 0
+--- !u!114 &963194232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 1bca20f1780f80b46ad42ddba744b097, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 1937585995}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: PlayerControlls
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 963194227}
 --- !u!1001 &1095494383
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1553,18 +1585,18 @@ MonoBehaviour:
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
   m_ActionsAsset: {fileID: -944628639613478452, guid: 1bca20f1780f80b46ad42ddba744b097, type: 3}
-  m_PointAction: {fileID: 0}
-  m_MoveAction: {fileID: 0}
-  m_SubmitAction: {fileID: 0}
-  m_CancelAction: {fileID: 0}
-  m_LeftClickAction: {fileID: 0}
-  m_MiddleClickAction: {fileID: 0}
-  m_RightClickAction: {fileID: 0}
-  m_ScrollWheelAction: {fileID: 0}
-  m_TrackedDevicePositionAction: {fileID: 0}
-  m_TrackedDeviceOrientationAction: {fileID: 0}
-  m_DeselectOnBackgroundClick: 1
-  m_PointerBehavior: 0
+  m_PointAction: {fileID: 6397417636058280617, guid: 1bca20f1780f80b46ad42ddba744b097, type: 3}
+  m_MoveAction: {fileID: -4974133623590282545, guid: 1bca20f1780f80b46ad42ddba744b097, type: 3}
+  m_SubmitAction: {fileID: -4137229399583992423, guid: 1bca20f1780f80b46ad42ddba744b097, type: 3}
+  m_CancelAction: {fileID: 894026082021163479, guid: 1bca20f1780f80b46ad42ddba744b097, type: 3}
+  m_LeftClickAction: {fileID: -7123675583588267161, guid: 1bca20f1780f80b46ad42ddba744b097, type: 3}
+  m_MiddleClickAction: {fileID: -4758326177357161190, guid: 1bca20f1780f80b46ad42ddba744b097, type: 3}
+  m_RightClickAction: {fileID: -5761442931406388331, guid: 1bca20f1780f80b46ad42ddba744b097, type: 3}
+  m_ScrollWheelAction: {fileID: 8637610788449765213, guid: 1bca20f1780f80b46ad42ddba744b097, type: 3}
+  m_TrackedDevicePositionAction: {fileID: -603462929904050707, guid: 1bca20f1780f80b46ad42ddba744b097, type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: -6883171479380801425, guid: 1bca20f1780f80b46ad42ddba744b097, type: 3}
+  m_DeselectOnBackgroundClick: 0
+  m_PointerBehavior: 2
 --- !u!114 &1937585996
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ public class CameraController : MonoBehaviour
 {
     public float panSpeed = 150f;
     public DeviceType deviceType;
-    PlayerInput playerInput;
+    public PlayerInput playerInput;
     [SerializeField]
     bool debug = false;
 
@@ -38,14 +38,14 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         Vector3 pos = transform.position;
-
-        if (deviceType == DeviceType.Desktop)
+        pos += new Vector3(playerInput.actions["CameraMovement"].ReadValue<Vector2>().x, 0f, playerInput.actions["CameraMovement"].ReadValue<Vector2>().y);
+        /*if (deviceType == DeviceType.Desktop)
         {
 
             if(Input.GetAxis("Vertical") != 0)
 			{
                 pos.z += Input.GetAxis("Vertical")*(panSpeed * Time.deltaTime);
-            }
+            }*/
             /*
             if (Input.GetKey("w"))
             {
@@ -55,10 +55,10 @@ public class CameraController : MonoBehaviour
             {
                 pos.z -= panSpeed * Time.deltaTime;
             }*/
-            if (Input.GetAxis("Horizontal") != 0)
+           /* if (Input.GetAxis("Horizontal") != 0)
             {
                 pos.x += Input.GetAxis("Horizontal")*(panSpeed * Time.deltaTime);
-            }
+            }*/
 
            // pos += new Vector3(playerInput.actions["CameraMovement"].ReadValue<Vector2>().x, 0f, playerInput.actions["CameraMovement"].ReadValue<Vector2>().y);
             /*
@@ -70,9 +70,9 @@ public class CameraController : MonoBehaviour
             {
                 pos.x += panSpeed * Time.deltaTime;
             }*/
-        }
+       /* }
         if (deviceType == DeviceType.Handheld)
-        {
+        {*/
             //pos += new Vector3(playerInput.actions[""].ReadValue<Vector2>().x, 0f, playerInput.actions["CameraMovement"].ReadValue<Vector2>().y);
 
             //Touch touch = Input.GetTouch(0);
@@ -107,7 +107,7 @@ public class CameraController : MonoBehaviour
                     }
                 }
             }*/
-        }
+        //}
         transform.position = pos;
     }
 }
