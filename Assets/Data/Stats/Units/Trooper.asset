@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Trooper
   m_EditorClassIdentifier: 
   typeofobject: 0
+  name: Trooper
+  mesh: {fileID: 7654251687701755144, guid: c4ebf4e86fd5dc146945aab58a600cc3, type: 3}
   maxHealth: 50
   armor: 5
   damage: 5
   range: 10
   attackspeed: 1
-  movementspeed: 3.5
-  name: Trooper
+  movementspeed: 35

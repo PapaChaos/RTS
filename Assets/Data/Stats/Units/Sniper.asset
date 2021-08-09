@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Sniper
   m_EditorClassIdentifier: 
   typeofobject: 0
+  name: Sniper
+  mesh: {fileID: 7684625086359004581, guid: 065ca1da842161148a4dbc739be308a0, type: 3}
   maxHealth: 25
   armor: 3
   damage: 10
   range: 20
   attackspeed: 2
-  movementspeed: 1
-  name: Sniper
+  movementspeed: 30

@@ -41,14 +41,16 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _BorderSize: 0.5
+    - _BorderSize: 0.3
     - _EdgeDetect: 0
     - _HeightMax: 10
     - _HeightMin: 0
+    - _NormalDepth: 3.75
+    - _NormalEdge: 0.85
     m_Colors:
     - _BorderColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.0705, g: 0.16, b: 0.2235, a: 1}
+    - _Color: {r: 0.13052209, g: 0.3584906, b: 0.11667854, a: 1}
     - _InaccessibleColor: {r: 0, g: 0, b: 0, a: 0}
     - _MainColor: {r: 0.07049998, g: 0.15999997, b: 0.22349995, a: 1}
-    - _MaxColor: {r: 0.21, g: 0.48, b: 0.66, a: 1}
+    - _MaxColor: {r: 0.33036408, g: 0.8018868, b: 0.22316661, a: 1}
   m_BuildTextureStacks: []

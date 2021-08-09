@@ -46,6 +46,8 @@ public class GOInfo : MonoBehaviour
 		range = stats.range;
 		attackspeed = stats.attackspeed;
 		movementspeed = stats.movementspeed;
+		MeshFilter mesh = GetComponent<MeshFilter>();
+		mesh.mesh = stats.mesh;
 		updateStats();
 	}
 	public void updateStats() //This is to make sure all necessary components change acording to stat updates.
@@ -53,7 +55,7 @@ public class GOInfo : MonoBehaviour
 		NAVAgent.speed = movementspeed;
 		//other stuff?
 	}
-	void takeDamage(int damage)
+	public void takeDamage(int damage)
 	{
 		int dmg = damage - armor;
 		if (dmg < 1)

@@ -6,7 +6,7 @@ public class ParserWindow : EditorWindow
 {
     [SerializeField]
     TextAsset TextParseTarget;
-    //string[] parseFileTargets;
+    //string[] parseFileTargets; //Will be added later to add multiple files for parsing.
     string parseFileTargets = "UnitBaseStats";
     string folderPath = "Spreadsheets/";
 
@@ -32,17 +32,17 @@ public class ParserWindow : EditorWindow
 
     void Parse()
     {
-        if(parseFileTargets.Length > 0)
-        for (int parseTarget = 0; parseTarget < parseFileTargets.Length; parseTarget++)
-        {
+       // if(parseFileTargets.Length > 0)
+       // for (int parseTarget = 0; parseTarget < parseFileTargets.Length; parseTarget++)
+       // {
             TextAsset TextParseTarget = Resources.Load<TextAsset>(folderPath+parseFileTargets);
 
-            rows = TextParseTarget.text.Split(new char[] { '\n' });
+            rows = TextParseTarget.text.Split(new char[] {'\n'});
 
 
             for (int i = 1; i < rows.Length; i++)
             {
-                string[] col = rows[i].Split(new char[] { ',' });
+                string[] col = rows[i].Split(new char[] {','});
 
                 float hp = 1;
                 float ar = 0;
@@ -52,19 +52,16 @@ public class ParserWindow : EditorWindow
                 float ms = 3;
 
                 string errorName = col[0];
-                bool parse = true;
 
-                parse = float.TryParse(col[1], out hp);
-                if (parse)
-                    parse = float.TryParse(col[2], out ar);
-                if (parse)
-                    parse = float.TryParse(col[3], out dmg);
-                if (parse)
-                    parse = float.TryParse(col[4], out rng);
-                if (parse)
-                    parse = float.TryParse(col[5], out ats);
-                if (parse)
-                    parse = float.TryParse(col[6], out ms);
+                //Ternary Operator looks smoother and cleaner imo.
+                bool parse = true ==
+                float.TryParse(col[1], out hp) &&
+                float.TryParse(col[2], out ar) &&
+                float.TryParse(col[3], out dmg) &&
+                float.TryParse(col[4], out rng) &&
+                float.TryParse(col[5], out ats) &&
+                float.TryParse(col[6], out ms)
+                ;
 
                 if (parse)
                 {
@@ -82,6 +79,6 @@ public class ParserWindow : EditorWindow
                 else
                     Debug.LogError($"Parse failed! Error in columns on row {i + 1}/{errorName}!"); //Error on line 4 is on purpose for testing.
             }
-        }
+        //}
     }
 }

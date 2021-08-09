@@ -10,10 +10,15 @@ public class UnitController : MonoBehaviour
     Material[] material;
     public List<GameObject> navTargets;
     GameObject curNavTarget;
+    //GameObject[] enemyTargets;
+    [SerializeField]
     GameObject curCombatTarget;
+    GOInfo stats;
 
     [SerializeField]
     float targetNTDist;
+
+    public bool debugTesting = true; 
 
     [SerializeField]
     enum Task
@@ -29,6 +34,7 @@ public class UnitController : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
 
+        stats = GetComponent<GOInfo>();
         
         if (navTargets.Count > 0)
             moveToLocation(navTargets[0].transform.position);
@@ -39,19 +45,31 @@ public class UnitController : MonoBehaviour
     }
 	void Update()
 	{
-        //if(task == Task.Moving)
-        if (navTargets.Count > 0) {
-            targetNTDist = Vector3.Distance(navTargets[0].transform.position, transform.position);
-            if (targetNTDist < 5)
+        CheckForEnemies();
+        if (task == Task.Moving)
+        {
+            agent.isStopped = false;
+            StopCoroutine(AttackEnemy(curCombatTarget));
+            if (navTargets.Count > 0)
             {
-                navTargets.Remove(navTargets[0]);
-            }
-            else
-            {
-                curNavTarget = navTargets[0];//debug testing mostly
-                moveToLocation(navTargets[0].transform.position);
+                targetNTDist = Vector3.Distance(navTargets[0].transform.position, transform.position);
+                if (targetNTDist < 5)
+                {
+                    navTargets.Remove(navTargets[0]);
+                }
+                else
+                {
+                    curNavTarget = navTargets[0];//debug testing mostly
+                    moveToLocation(navTargets[0].transform.position);
+                }
             }
         }
+        if(task == Task.Combat)
+		{
+            agent.isStopped = true;
+            agent.velocity = Vector3.zero;
+            StartCoroutine(AttackEnemy(curCombatTarget));
+		}
 
     }
 
@@ -73,5 +91,41 @@ public class UnitController : MonoBehaviour
             GetComponent<Renderer>().material = material[1];
         }
 	}
+    
+    void CheckForEnemies()
+	{
+        curCombatTarget = null;
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, stats.range);
+        foreach(Collider hitCollider in hitColliders)
+		{
+            if(hitCollider.GetComponent<GOInfo>() != null)
+			{
 
+                if(hitCollider.GetComponent<GOInfo>().faction != stats.faction)
+				{
+                    curCombatTarget = hitCollider.gameObject;
+                }
+
+            }
+		}
+        if (curCombatTarget)
+            task = Task.Combat;
+		else
+            task = Task.Moving;
+    }
+    IEnumerator AttackEnemy(GameObject target)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(stats.attackspeed);
+            if (target)
+            {
+                target.GetComponent<GOInfo>().takeDamage(stats.damage);
+                if (debugTesting)
+                {
+                    Debug.DrawLine(transform.position, target.transform.position, Color.red, 5f);
+                }
+            }
+        }
+    }
 }

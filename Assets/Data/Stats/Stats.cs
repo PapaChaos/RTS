@@ -16,11 +16,13 @@ public class Stats : ScriptableObject
 	#if UNITY_EDITOR
 	string unitPath = "Assets/Data/Stats/Units/";
 	string buildingPath = "Assets/Data/Stats/Buildings/";
-	#endif
+#endif
 
+	public new string name;
+	public Mesh mesh;
 	public int maxHealth, armor, damage;
 	public float range, attackspeed, movementspeed;
-    public new string name;
+
 
 	#if UNITY_EDITOR
 	public void generateAsset(Stats asset)

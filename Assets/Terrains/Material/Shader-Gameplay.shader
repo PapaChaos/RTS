@@ -125,6 +125,10 @@ Shader "Unlit/Shader-Gameplay"
             }
             o.Albedo = tintColor.rgb;
             o.Alpha = tintColor.a;
+
+            float _checkEmis = tintColor.r+ tintColor.g+tintColor.b;
+            if (_checkEmis > 1.6)
+                o.Emission = o.Albedo;
         }
 
         ENDCG
