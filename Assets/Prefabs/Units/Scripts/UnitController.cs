@@ -29,9 +29,10 @@ public class UnitController : MonoBehaviour
 	}
     Task task;
 
-    Vector3 targetLocation = new Vector3(827f, 10f, 823f); //pre set location for testing
+    public Vector3 targetLocation; //pre set location for testing
     void Start()
     {
+        targetLocation = gameObject.transform.position;
         agent = GetComponent<NavMeshAgent>();
 
         stats = GetComponent<GOInfo>();
@@ -63,6 +64,12 @@ public class UnitController : MonoBehaviour
                     moveToLocation(navTargets[0].transform.position);
                 }
             }
+            else if(stats.owner == GOInfo.Owner.player)
+			{
+                moveToLocation(targetLocation);
+
+            }
+
         }
         if(task == Task.Combat)
 		{
@@ -82,13 +89,22 @@ public class UnitController : MonoBehaviour
     public void setInfo()
     {
         GOInfo goinfo = GetComponent<GOInfo>();
-        if(goinfo.faction == GOInfo.Faction.green)
-		{
-            GetComponent<Renderer>().material = material[0];
-        }
-        if (goinfo.faction == GOInfo.Faction.red)
+
+        if (goinfo.owner == GOInfo.Owner.npc)
         {
-            GetComponent<Renderer>().material = material[1];
+            if (goinfo.faction == GOInfo.Faction.green)
+            {
+                GetComponent<Renderer>().material = material[0];
+            }
+            if (goinfo.faction == GOInfo.Faction.red)
+            {
+                GetComponent<Renderer>().material = material[1];
+            }
+        }
+        else if(goinfo.owner == GOInfo.Owner.player)
+        {
+            GetComponent<Renderer>().materials[0] = material[2];
+            GetComponent<Renderer>().materials[1] = material[2];
         }
 	}
     

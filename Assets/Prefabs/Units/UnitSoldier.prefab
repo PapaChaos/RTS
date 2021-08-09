@@ -51,6 +51,7 @@ MonoBehaviour:
   faction: 0
   owner: 0
   stats: {fileID: 0}
+  attackable: 1
   range: 0
   attackspeed: 0
   movementspeed: 0
@@ -73,6 +74,7 @@ MonoBehaviour:
   material:
   - {fileID: 2100000, guid: ed1d472f6fc10a44b99bcf45fa36dca8, type: 2}
   - {fileID: 2100000, guid: 534762e3788732949a767fd0974b1876, type: 2}
+  - {fileID: 2100000, guid: 1f090ea4e8215e54aada3d726f05dcb0, type: 2}
   navTargets: []
   curCombatTarget: {fileID: 0}
   targetNTDist: 0

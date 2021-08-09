@@ -7,8 +7,7 @@ public class UI_FactionInfo : MonoBehaviour
     [SerializeField]
     Text metalText, metalGainText;
 
-    [SerializeField]
-    FactionResources factionResources;
+    public FactionResources factionResources;
 
     [SerializeField]
     List<FactionResources> otherPlayers;
