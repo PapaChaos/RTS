@@ -101,7 +101,7 @@ public class UnitController : MonoBehaviour
             if(hitCollider.GetComponent<GOInfo>() != null)
 			{
 
-                if(hitCollider.GetComponent<GOInfo>().faction != stats.faction)
+                if(hitCollider.GetComponent<GOInfo>().faction != stats.faction && hitCollider.GetComponent<GOInfo>().attackable)
 				{
                     curCombatTarget = hitCollider.gameObject;
                 }

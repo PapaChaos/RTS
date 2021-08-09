@@ -9,44 +9,36 @@ public class Spawners : MonoBehaviour
     GameObject unit;
 
     [SerializeField]
-    List<Stats> stat;
-
-    [SerializeField]
-    string spawnLocationTag;
-
-    [SerializeField]
     GameObject spawningLocation;
 
     [SerializeField]
     GameObject[] wayPoints;
 
+    public List<Stats> squad;
+
+    float spawnTimer;
     GOInfo thisinfo;
     // Start is called before the first frame update
     void Start()
     {
-        spawningLocation = GameObject.FindGameObjectWithTag(spawnLocationTag);
         thisinfo = GetComponent<GOInfo>();
-
-
-        StartCoroutine(spawnTimer());
     }
 
-    IEnumerator spawnTimer()
-    {
-        while (true) 
-        { 
-            yield return new WaitForSeconds(5f);
-            int randomIntfortesting = Random.Range(0, stat.Count);
-            SpawnUnit(spawningLocation.transform.position, spawningLocation.transform.rotation, randomIntfortesting);
+    public IEnumerator SpawnSquad()
+	{
+        for(int u = 0; u < squad.Count; u++ )
+		{
+            SpawnUnit(spawningLocation.transform.position, spawningLocation.transform.rotation, squad[u]);
+            yield return new WaitForSeconds(0.5f);
         }
-    }
+	}
 
-    void SpawnUnit(Vector3 location, Quaternion rotation, int unitType)
+    void SpawnUnit(Vector3 location, Quaternion rotation, Stats unitType)
 	{
         GameObject refUnit = Instantiate(unit, location, rotation);
 
         GOInfo baseInfo = refUnit.GetComponent<GOInfo>();
-        baseInfo.stats = stat[unitType];
+        baseInfo.stats = unitType;
         baseInfo.faction = thisinfo.faction;
         baseInfo.StartingStats();
 

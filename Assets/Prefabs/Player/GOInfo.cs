@@ -11,6 +11,8 @@ public class GOInfo : MonoBehaviour
     public Stats stats;
 	NavMeshAgent NAVAgent;
 
+	public bool attackable = true;
+
 	//Stats
 	public float range, attackspeed, movementspeed;
 	public int curHealth, maxHealth, armor, damage;
