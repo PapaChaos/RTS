@@ -1,5 +1,5 @@
 # RTS
-##Trello link for project overview.
+## Trello link for project overview.
 https://trello.com/b/Rech1mEH/unity-rts
 
 ## Parser 
