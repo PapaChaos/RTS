@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class CameraController : MonoBehaviour
@@ -19,6 +20,8 @@ public class CameraController : MonoBehaviour
     GameObject PlayerUnit;
     public Vector3 PressLoc;
 
+    PressLocationParticleScript pressParticle;
+
     [SerializeField]
     public Camera camera;
 
@@ -31,9 +34,8 @@ public class CameraController : MonoBehaviour
 
 	private void Awake()
 	{
-        //camera = GetComponent<Camera>();
+        pressParticle = GetComponent<PressLocationParticleScript>();
 
-        //playerInput = GetComponent<PlayerInput>();
         deviceType = SystemInfo.deviceType;
         if (debug)
         {
@@ -71,31 +73,40 @@ public class CameraController : MonoBehaviour
 
 
         if (PlayerUnit)
-		{
+        {
 
             if (playerInput.actions["MousePress"].ReadValue<float>() > 0)
             {
                 RaycastHit hit;
                 Ray ray = camera.ScreenPointToRay(playerInput.actions["MousePointerLocation"].ReadValue<Vector2>());
 
+                if (!EventSystem.current.IsPointerOverGameObject())
+                {
 
-                if (Physics.Raycast(ray, out hit))
-				{
-                    //Debug.DrawLine(camera.transform.position, hit.point, Color.red, 5f);
-                    PlayerUnit.GetComponent<UnitController>().targetLocation = hit.point;
-					if (hit.transform.gameObject.GetComponent<ResourceNode>())
-					{
-                        float dist = Vector3.Distance(PlayerUnit.transform.position, hit.transform.position);
-                        if(dist < 15f)
-						{
-                            GOInfo GOI = GetComponent<GOInfo>();
-                            GOInfo hitGOI = hit.transform.gameObject.GetComponent<GOInfo>();
-                            hitGOI.faction = GOI.faction;
-                            hitGOI.updateMaterials();
+                    if (Physics.Raycast(ray, out hit))
+                    {
+                        pressParticle.StartParticle(hit.point);
+                        //Debug.DrawLine(camera.transform.position, hit.point, Color.red, 5f);
+                        PlayerUnit.GetComponent<UnitController>().targetLocation = hit.point;
+                        if (hit.transform.gameObject.GetComponent<ResourceNode>())
+                        {
+                            float dist = Vector3.Distance(PlayerUnit.transform.position, hit.transform.position);
+                            if (dist < 15f)
+                            {
+
+                                GOInfo GOI = GetComponent<GOInfo>();
+                                GOInfo hitGOI = hit.transform.gameObject.GetComponent<GOInfo>();
+                                hitGOI.faction = GOI.faction;
+                                hitGOI.updateMaterials();
+                            }
                         }
-					}
+                    }
                 }
-			}
-		}
+            }
+            if (playerInput.actions["MousePress"].ReadValue<float>() == 0)
+            {
+                pressParticle.StopParticle();
+            }
+        }
     }
 }

@@ -55,8 +55,11 @@ public class UI_FactionInfo : MonoBehaviour
         oilGainText.text = "Oil Gain: +" + factionResources.oilGain.ToString();
         squadCost.text = "Squad Cost: +" + factionResources.squadCost;
 
+        if(factionResources && otherPlayers.Count > 0)
+
         if(!factionResources)
 		{
+            losewin.enabled = true;
             losewin.text = lose;
         }
         foreach(FactionResources otherplayer in otherPlayers)
@@ -64,8 +67,14 @@ public class UI_FactionInfo : MonoBehaviour
             if (!otherplayer)
                 otherPlayers.Remove(otherplayer);
 		}
-        if(otherPlayers.Count == 0)
+        if (factionResources && otherPlayers.Count > 0)
 		{
+            losewin.enabled = false;
+        }
+
+        if (otherPlayers.Count == 0)
+		{
+            losewin.enabled = true;
             losewin.text = win;
 		}
     }

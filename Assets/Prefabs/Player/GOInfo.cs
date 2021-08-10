@@ -37,6 +37,10 @@ public class GOInfo : MonoBehaviour
 	private void Awake()
 	{
 		NAVAgent = GetComponent<NavMeshAgent>();
+
+	}
+	private void Start()
+	{
 		updateMaterials();
 	}
 
@@ -80,27 +84,30 @@ public class GOInfo : MonoBehaviour
 	public void updateMaterials()
 	{
 		Renderer renderer = GetComponent<Renderer>();
+
 		if (renderer)
 		{
-			Material[] mats = new Material[renderer.materials.Length];
-			for (int i = 0; i < renderer.materials.Length; i++)
+			if (renderer.materials.Length > 0)
 			{
+				Material[] mats = new Material[renderer.materials.Length];
 
-				if (owner != Owner.player)
+				for (int i = 0; i < mats.Length; i++)
 				{
-					Material facmat = new Material(facMaterial[(int)faction]);
-					mats[i] = facmat;
-				}
 
-				if (owner == Owner.player)
-				{
-					Material facmat = new Material(facMaterial[4]);
-					mats[i] = facmat;
+					if (owner != Owner.player)
+					{
+						Material facmat = new Material(facMaterial[(int)faction]);
+						mats[i] = facmat;
+					}
+
+					if (owner == Owner.player)
+					{
+						Material facmat = new Material(facMaterial[4]);
+						mats[i] = facmat;
+					}
 				}
+				renderer.materials = mats;
 			}
-			renderer.materials = mats;
 		}
 	}
-
-
 }
