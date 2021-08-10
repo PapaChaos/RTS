@@ -1,4 +1,7 @@
 # RTS
+##Trello link for project overview.
+https://trello.com/b/Rech1mEH/unity-rts
+
 ## Parser 
 Comma separated files from spreadsheets (.csv) can be parsed. Can add other ways to parse later. 
 Can add the files in: Assets/Resources/Spreadsheets/ and then set the name in the parser window and it will convert it.
