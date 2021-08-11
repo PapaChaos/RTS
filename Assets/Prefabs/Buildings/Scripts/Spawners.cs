@@ -20,14 +20,15 @@ public class Spawners : MonoBehaviour
     [SerializeField]
     GameObject[] wayPoints;
 
+    public List<Stats> playerUnits;
     public List<Stats> squad;
 
     float spawnTimer;
-    GOInfo thisinfo;
+    BaseStats thisinfo;
     // Start is called before the first frame update
     void Start()
     {
-        thisinfo = GetComponent<GOInfo>();
+        thisinfo = GetComponent<BaseStats>();
     }
 
     public IEnumerator SpawnSquad()
@@ -48,14 +49,14 @@ public class Spawners : MonoBehaviour
 	}
 	public void spawnPlayerUnit()
 	{
-        SpawnUnit(spawningLocation.transform.position, spawningLocation.transform.rotation, squad[0]);
+        SpawnUnit(spawningLocation.transform.position, spawningLocation.transform.rotation, playerUnits[0]);
 	}
 
     void SpawnUnit(Vector3 location, Quaternion rotation, Stats unitType)
 	{
         GameObject refUnit = Instantiate(unit, location, rotation);
 
-        GOInfo baseInfo = refUnit.GetComponent<GOInfo>();
+        BaseStats baseInfo = refUnit.GetComponent<BaseStats>();
 
         baseInfo.stats = unitType;
         baseInfo.faction = thisinfo.faction;
@@ -63,16 +64,12 @@ public class Spawners : MonoBehaviour
         baseInfo.StartingStats();
         if (!playerUnit && playerSpawner)
         {
-            baseInfo.owner = GOInfo.Owner.player;
-            //NavMeshAgent agent = refUnit.GetComponent<NavMeshAgent>();
-            //agent.
+            baseInfo.owner = BaseInfo.Owner.player;
             playerUnit = refUnit;
         }
 
         UnitController unitcontroller = refUnit.GetComponent<UnitController>();
-        unitcontroller.setInfo();
+        baseInfo.updateMaterials();
         unitcontroller.navTargets = wayPoints.ToList();
-
-
     }
 }

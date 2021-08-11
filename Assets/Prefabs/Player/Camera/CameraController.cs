@@ -94,8 +94,8 @@ public class CameraController : MonoBehaviour
                             if (dist < 15f)
                             {
 
-                                GOInfo GOI = GetComponent<GOInfo>();
-                                GOInfo hitGOI = hit.transform.gameObject.GetComponent<GOInfo>();
+                                BaseInfo GOI = GetComponent<BaseInfo>();
+                                BaseInfo hitGOI = hit.transform.gameObject.GetComponent<BaseInfo>();
                                 hitGOI.faction = GOI.faction;
                                 hitGOI.updateMaterials();
                             }

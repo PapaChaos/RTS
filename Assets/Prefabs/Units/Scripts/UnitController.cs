@@ -7,13 +7,13 @@ public class UnitController : MonoBehaviour
 {
     NavMeshAgent agent;
     [SerializeField]
-    Material[] material;
+    //Material[] material;
     public List<GameObject> navTargets;
     GameObject curNavTarget;
     //GameObject[] enemyTargets;
     [SerializeField]
     GameObject curCombatTarget;
-    GOInfo stats;
+    BaseStats stats;
 
     [SerializeField]
     float targetNTDist;
@@ -35,7 +35,7 @@ public class UnitController : MonoBehaviour
         targetLocation = gameObject.transform.position;
         agent = GetComponent<NavMeshAgent>();
 
-        stats = GetComponent<GOInfo>();
+        stats = GetComponent<BaseStats>();
         
         if (navTargets.Count > 0)
             moveToLocation(navTargets[0].transform.position);
@@ -64,7 +64,7 @@ public class UnitController : MonoBehaviour
                     moveToLocation(navTargets[0].transform.position);
                 }
             }
-            else if(stats.owner == GOInfo.Owner.player)
+            else if(stats.owner == BaseInfo.Owner.player)
 			{
                 moveToLocation(targetLocation);
 
@@ -85,28 +85,6 @@ public class UnitController : MonoBehaviour
         agent.SetDestination(loc);
         return agent.SetDestination(loc);
 	}
-
-    public void setInfo()
-    {
-        GOInfo goinfo = GetComponent<GOInfo>();
-
-        if (goinfo.owner == GOInfo.Owner.npc)
-        {
-            if (goinfo.faction == GOInfo.Faction.green)
-            {
-                GetComponent<Renderer>().material = material[0];
-            }
-            if (goinfo.faction == GOInfo.Faction.red)
-            {
-                GetComponent<Renderer>().material = material[1];
-            }
-        }
-        else if(goinfo.owner == GOInfo.Owner.player)
-        {
-            GetComponent<Renderer>().materials[0] = material[2];
-            GetComponent<Renderer>().materials[1] = material[2];
-        }
-	}
     
     void CheckForEnemies()
 	{
@@ -114,10 +92,10 @@ public class UnitController : MonoBehaviour
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, stats.range);
         foreach(Collider hitCollider in hitColliders)
 		{
-            if(hitCollider.GetComponent<GOInfo>() != null)
+            if(hitCollider.GetComponent<BaseStats>() != null)
 			{
 
-                if(hitCollider.GetComponent<GOInfo>().faction != stats.faction && hitCollider.GetComponent<GOInfo>().attackable)
+                if(hitCollider.GetComponent<BaseStats>().faction != stats.faction && hitCollider.GetComponent<BaseStats>().maxHealth > 0)
 				{
                     curCombatTarget = hitCollider.gameObject;
                 }
@@ -136,7 +114,7 @@ public class UnitController : MonoBehaviour
             yield return new WaitForSeconds(stats.attackspeed);
             if (target)
             {
-                target.GetComponent<GOInfo>().takeDamage(stats.damage);
+                target.GetComponent<BaseStats>().takeDamage(stats.damage);
                 if (debugTesting)
                 {
                     Debug.DrawLine(transform.position, target.transform.position, Color.red, 5f);

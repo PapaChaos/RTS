@@ -75,7 +75,7 @@ public class FactionResources : MonoBehaviour
         oilGain = 0;
         foreach(ResourceNode rn in resourceNodes)
 		{
-            if (rn.GetComponent<GOInfo>().faction == GetComponent<GOInfo>().faction)
+            if (rn.GetComponent<BaseInfo>().faction == GetComponent<BaseInfo>().faction)
             {
                 metalGain += rn.metalGain;
                 oilGain += rn.oilGain;

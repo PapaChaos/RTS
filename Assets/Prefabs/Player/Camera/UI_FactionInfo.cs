@@ -28,14 +28,14 @@ public class UI_FactionInfo : MonoBehaviour
     public string win = "You Win!";
     public string lose = "You Lose!";
 
-    GOInfo goinfo;
+    BaseStats goinfo;
 	private void Awake()
 	{
-        goinfo = GetComponent<GOInfo>();
+        //goinfo = GetComponent<BaseStats>();
         FactionResources[] fra = (FactionResources[])FindObjectsOfType(typeof(FactionResources));
         foreach(FactionResources fr in fra)
 		{
-            if(fr.GetComponent<GOInfo>().faction == GetComponent<GOInfo>().faction)
+            if(fr.GetComponent<BaseInfo>().faction == GetComponent<BaseInfo>().faction)
 			{
                 factionResources = fr;
 			}
@@ -46,7 +46,7 @@ public class UI_FactionInfo : MonoBehaviour
 		}
 
 	}
-	// Update is called once per frame
+
 	void Update()
     {
         metalText.text = "Metal: "+factionResources.metal.ToString();

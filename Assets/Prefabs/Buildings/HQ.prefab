@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3241606887826564321}
   - component: {fileID: 6405749445242937351}
   - component: {fileID: 2551926797954355398}
-  - component: {fileID: 1915308335599455685}
+  - component: {fileID: -477303029770078852}
   - component: {fileID: 5223731973738024065}
   - component: {fileID: -846052661742855289}
   m_Layer: 0
@@ -100,7 +100,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &1915308335599455685
+--- !u!114 &-477303029770078852
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,24 +109,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 5927859794716069667}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e69c55fdbefee94796bc228ee1bb6ce, type: 3}
+  m_Script: {fileID: 11500000, guid: 4484e318e4dea13489e96e4cf61fd653, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  faction: 1
+  faction: 0
   owner: 0
-  stats: {fileID: 0}
   facMaterial:
-  - {fileID: -8771166627424403242, guid: b67a67cb9b2e5cd4bac7c09e6021e262, type: 3}
-  - {fileID: 2100000, guid: ed1d472f6fc10a44b99bcf45fa36dca8, type: 2}
+  - {fileID: 2100000, guid: 943218ac8157a3940be4f18f9d45d4fe, type: 2}
+  - {fileID: 2100000, guid: 96155d69cc4099e4eb506482ce3cace7, type: 2}
   - {fileID: 2100000, guid: 534762e3788732949a767fd0974b1876, type: 2}
-  - {fileID: -8771166627424403242, guid: b67a67cb9b2e5cd4bac7c09e6021e262, type: 3}
-  attackable: 1
+  stats: {fileID: 0}
   range: 0
   attackspeed: 0
   movementspeed: 0
-  curHealth: 20000
-  maxHealth: 20000
-  armor: 10
+  curHealth: 10000
+  maxHealth: 10000
+  armor: 0
   damage: 0
 --- !u!114 &5223731973738024065
 MonoBehaviour:
@@ -169,5 +167,10 @@ MonoBehaviour:
   playerSpawner: 1
   playerUnit: {fileID: 0}
   wayPoints: []
-  squad:
+  playerUnits:
   - {fileID: 11400000, guid: bc504001ac304f740bee4afd80115e03, type: 2}
+  squad:
+  - {fileID: 11400000, guid: c44b8ae22b24b9744a33a7c9aee5b65b, type: 2}
+  - {fileID: 11400000, guid: c44b8ae22b24b9744a33a7c9aee5b65b, type: 2}
+  - {fileID: 11400000, guid: c44b8ae22b24b9744a33a7c9aee5b65b, type: 2}
+  - {fileID: 11400000, guid: 6a4bc2175f8055a4a8cf9881ecdeef8c, type: 2}

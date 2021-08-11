@@ -6671,6 +6671,10 @@ PrefabInstance:
       propertyPath: wayPoints.Array.data[5]
       value: 
       objectReference: {fileID: 1095494384}
+    - target: {fileID: 3623751077470441423, guid: 143a1f0373f850b4c82c030db32e59bb, type: 3}
+      propertyPath: faction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4601745381379921928, guid: 143a1f0373f850b4c82c030db32e59bb, type: 3}
       propertyPath: curHealth
       value: 1000
@@ -8288,21 +8292,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e69c55fdbefee94796bc228ee1bb6ce, type: 3}
+  m_Script: {fileID: 11500000, guid: df927331a005e0e4b9ab3a10974915bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   faction: 1
   owner: 0
-  stats: {fileID: 0}
   facMaterial: []
-  attackable: 0
-  range: 0
-  attackspeed: 0
-  movementspeed: 0
-  curHealth: 0
-  maxHealth: 0
-  armor: 0
-  damage: 0
 --- !u!114 &963194234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8644,42 +8639,10 @@ PrefabInstance:
       propertyPath: spawningLocation
       value: 
       objectReference: {fileID: 20705159}
-    - target: {fileID: -846052661742855289, guid: a2687956459fdfd43849cf63bf5d910b, type: 3}
-      propertyPath: squad.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -846052661742855289, guid: a2687956459fdfd43849cf63bf5d910b, type: 3}
-      propertyPath: squad.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: bc504001ac304f740bee4afd80115e03, type: 2}
-    - target: {fileID: 1915308335599455685, guid: a2687956459fdfd43849cf63bf5d910b, type: 3}
+    - target: {fileID: -477303029770078852, guid: a2687956459fdfd43849cf63bf5d910b, type: 3}
       propertyPath: faction
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1915308335599455685, guid: a2687956459fdfd43849cf63bf5d910b, type: 3}
-      propertyPath: facMaterial.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1915308335599455685, guid: a2687956459fdfd43849cf63bf5d910b, type: 3}
-      propertyPath: facMaterial.Array.data[0]
-      value: 
-      objectReference: {fileID: 6946371992469204984, guid: ce1a71a3608845840879af1774794db1, type: 3}
-    - target: {fileID: 1915308335599455685, guid: a2687956459fdfd43849cf63bf5d910b, type: 3}
-      propertyPath: facMaterial.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: ed1d472f6fc10a44b99bcf45fa36dca8, type: 2}
-    - target: {fileID: 1915308335599455685, guid: a2687956459fdfd43849cf63bf5d910b, type: 3}
-      propertyPath: facMaterial.Array.data[2]
-      value: 
-      objectReference: {fileID: 2100000, guid: 534762e3788732949a767fd0974b1876, type: 2}
-    - target: {fileID: 1915308335599455685, guid: a2687956459fdfd43849cf63bf5d910b, type: 3}
-      propertyPath: facMaterial.Array.data[3]
-      value: 
-      objectReference: {fileID: 6946371992469204984, guid: 097189b34764bf44780cda66867d36ff, type: 3}
-    - target: {fileID: 1915308335599455685, guid: a2687956459fdfd43849cf63bf5d910b, type: 3}
-      propertyPath: facMaterial.Array.data[4]
-      value: 
-      objectReference: {fileID: 2100000, guid: 1f090ea4e8215e54aada3d726f05dcb0, type: 2}
     - target: {fileID: 4757500662275260943, guid: a2687956459fdfd43849cf63bf5d910b, type: 3}
       propertyPath: m_RootOrder
       value: 24
@@ -9895,6 +9858,10 @@ PrefabInstance:
       propertyPath: wayPoints.Array.data[5]
       value: 
       objectReference: {fileID: 1390615498}
+    - target: {fileID: 3623751077470441423, guid: 143a1f0373f850b4c82c030db32e59bb, type: 3}
+      propertyPath: faction
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4601745381379921928, guid: 143a1f0373f850b4c82c030db32e59bb, type: 3}
       propertyPath: faction
       value: 2
@@ -9987,7 +9954,8 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4601745381379921928, guid: 143a1f0373f850b4c82c030db32e59bb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 143a1f0373f850b4c82c030db32e59bb, type: 3}
 --- !u!1001 &1525840622
 PrefabInstance:
@@ -10420,6 +10388,10 @@ PrefabInstance:
       propertyPath: wayPoints.Array.data[5]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3623751077470441423, guid: 143a1f0373f850b4c82c030db32e59bb, type: 3}
+      propertyPath: faction
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4601745381379921928, guid: 143a1f0373f850b4c82c030db32e59bb, type: 3}
       propertyPath: faction
       value: 2
@@ -10634,6 +10606,10 @@ PrefabInstance:
       propertyPath: wayPoints.Array.data[5]
       value: 
       objectReference: {fileID: 1095494384}
+    - target: {fileID: 3623751077470441423, guid: 143a1f0373f850b4c82c030db32e59bb, type: 3}
+      propertyPath: faction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4601745381379921928, guid: 143a1f0373f850b4c82c030db32e59bb, type: 3}
       propertyPath: curHealth
       value: 1000
@@ -11064,7 +11040,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1424990}
   m_Direction: 2
   m_Value: 1.0000001
-  m_Size: 0.6666667
+  m_Size: 0.66666675
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -11851,29 +11827,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -846052661742855289, guid: a2687956459fdfd43849cf63bf5d910b, type: 3}
-      propertyPath: unit
-      value: 
-      objectReference: {fileID: 9013886525776015003, guid: f90e661c3dbfaab4fb70d3fea06a55d8, type: 3}
-    - target: {fileID: -846052661742855289, guid: a2687956459fdfd43849cf63bf5d910b, type: 3}
       propertyPath: spawningLocation
       value: 
       objectReference: {fileID: 2018794142}
-    - target: {fileID: -846052661742855289, guid: a2687956459fdfd43849cf63bf5d910b, type: 3}
-      propertyPath: squad.Array.size
+    - target: {fileID: -477303029770078852, guid: a2687956459fdfd43849cf63bf5d910b, type: 3}
+      propertyPath: faction
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: -846052661742855289, guid: a2687956459fdfd43849cf63bf5d910b, type: 3}
-      propertyPath: squad.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: bc504001ac304f740bee4afd80115e03, type: 2}
-    - target: {fileID: 1915308335599455685, guid: a2687956459fdfd43849cf63bf5d910b, type: 3}
-      propertyPath: facMaterial.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1915308335599455685, guid: a2687956459fdfd43849cf63bf5d910b, type: 3}
-      propertyPath: facMaterial.Array.data[4]
-      value: 
-      objectReference: {fileID: 2100000, guid: 1f090ea4e8215e54aada3d726f05dcb0, type: 2}
     - target: {fileID: 4757500662275260943, guid: a2687956459fdfd43849cf63bf5d910b, type: 3}
       propertyPath: m_RootOrder
       value: 23
