@@ -41,13 +41,23 @@ public class BaseInfo : MonoBehaviour
 					if (owner != Owner.player)
 					{
 						Material facmat = new Material(facMaterial[(int)faction]);
-						mats[i] = facmat;
+						if (i == 0)
+							mats[i] = facmat;
+						else
+							mats[i] = renderer.materials[i];
+
 					}
 
 					if (owner == Owner.player)
 					{
 						Material facmat = new Material(facMaterial[3]);
-						mats[i] = facmat;
+
+						if (i == 0)
+							mats[i] = facmat;
+						else
+							mats[i] = renderer.materials[i];
+
+						//mats[i] = facmat;
 					}
 				}
 				renderer.materials = mats;

@@ -53,7 +53,7 @@ MonoBehaviour:
   facMaterial:
   - {fileID: 2100000, guid: 943218ac8157a3940be4f18f9d45d4fe, type: 2}
   - {fileID: 2100000, guid: 96155d69cc4099e4eb506482ce3cace7, type: 2}
-  - {fileID: 2100000, guid: 534762e3788732949a767fd0974b1876, type: 2}
+  - {fileID: 2100000, guid: 2998da26ab85ad74fa73497d6a92fa01, type: 2}
   - {fileID: 2100000, guid: 1f090ea4e8215e54aada3d726f05dcb0, type: 2}
   stats: {fileID: 0}
   range: 0
@@ -75,10 +75,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b94d41ddebefcce46913a22438bba1c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material:
-  - {fileID: 2100000, guid: ed1d472f6fc10a44b99bcf45fa36dca8, type: 2}
-  - {fileID: 2100000, guid: 534762e3788732949a767fd0974b1876, type: 2}
-  - {fileID: 2100000, guid: 1f090ea4e8215e54aada3d726f05dcb0, type: 2}
   navTargets: []
   curCombatTarget: {fileID: 0}
   targetNTDist: 0
@@ -127,7 +123,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 2100000, guid: 8f133da026ea17941a118f8fe41da4cb, type: 2}
+  - {fileID: 2100000, guid: 51fd6d1602f75be439651190bbbab4ef, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

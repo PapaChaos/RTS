@@ -2,4 +2,6 @@ Name,Mesh,Hitpoints,Armor,Damage,Range,Attack Speed,Movement Speed,Cost
 Trooper,,50,5,5,10,1,3.5,25
 Sniper,,25,3,10,25,2,3,25
 Mecha,,100,10,10,10,1,2,50
+Medic,,25,3,0,5,1,4,25
+,,,,,,,,
 Leader,,100,8,10,15,1,3,0

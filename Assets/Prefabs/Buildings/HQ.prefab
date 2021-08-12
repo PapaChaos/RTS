@@ -117,7 +117,7 @@ MonoBehaviour:
   facMaterial:
   - {fileID: 2100000, guid: 943218ac8157a3940be4f18f9d45d4fe, type: 2}
   - {fileID: 2100000, guid: 96155d69cc4099e4eb506482ce3cace7, type: 2}
-  - {fileID: 2100000, guid: 534762e3788732949a767fd0974b1876, type: 2}
+  - {fileID: 2100000, guid: 2998da26ab85ad74fa73497d6a92fa01, type: 2}
   stats: {fileID: 0}
   range: 0
   attackspeed: 0
@@ -147,7 +147,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c44b8ae22b24b9744a33a7c9aee5b65b, type: 2}
   - {fileID: 11400000, guid: c44b8ae22b24b9744a33a7c9aee5b65b, type: 2}
   - {fileID: 11400000, guid: c44b8ae22b24b9744a33a7c9aee5b65b, type: 2}
+  - {fileID: 11400000, guid: 2fe84558f65526d44b3db16390fda24d, type: 2}
   - {fileID: 11400000, guid: 6a4bc2175f8055a4a8cf9881ecdeef8c, type: 2}
+  - {fileID: 11400000, guid: ebc93191a1c24884ba61816252a1cdac, type: 2}
   squadCost: 0
   spawners: []
 --- !u!114 &-846052661742855289
@@ -173,4 +175,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c44b8ae22b24b9744a33a7c9aee5b65b, type: 2}
   - {fileID: 11400000, guid: c44b8ae22b24b9744a33a7c9aee5b65b, type: 2}
   - {fileID: 11400000, guid: c44b8ae22b24b9744a33a7c9aee5b65b, type: 2}
+  - {fileID: 11400000, guid: 2fe84558f65526d44b3db16390fda24d, type: 2}
   - {fileID: 11400000, guid: 6a4bc2175f8055a4a8cf9881ecdeef8c, type: 2}
+  - {fileID: 11400000, guid: ebc93191a1c24884ba61816252a1cdac, type: 2}

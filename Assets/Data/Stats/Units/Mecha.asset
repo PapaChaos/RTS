@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeofobject: 0
   name: Mecha
-  mesh: {fileID: 7684625086359004581, guid: ce1a71a3608845840879af1774794db1, type: 3}
+  mesh: {fileID: 4560810435880726055, guid: f35839984bd58a94f85a79aa75f57093, type: 3}
   maxHealth: 100
   armor: 10
   damage: 10
   cost: 50
   range: 10
   attackspeed: 1
-  movementspeed: 20
+  movementspeed: 2

@@ -102,7 +102,7 @@ MonoBehaviour:
   facMaterial:
   - {fileID: 2100000, guid: 943218ac8157a3940be4f18f9d45d4fe, type: 2}
   - {fileID: 2100000, guid: 96155d69cc4099e4eb506482ce3cace7, type: 2}
-  - {fileID: 2100000, guid: 534762e3788732949a767fd0974b1876, type: 2}
+  - {fileID: 2100000, guid: 2998da26ab85ad74fa73497d6a92fa01, type: 2}
 --- !u!114 &4928356261004056786
 MonoBehaviour:
   m_ObjectHideFlags: 0

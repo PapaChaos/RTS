@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeofobject: 0
   name: Leader
-  mesh: {fileID: 7684625086359004581, guid: 097189b34764bf44780cda66867d36ff, type: 3}
+  mesh: {fileID: -2336152953585266597, guid: d6184f437d3b9954b93c09540343b60c, type: 3}
   maxHealth: 100
   armor: 8
   damage: 10
   cost: 0
   range: 15
   attackspeed: 1
-  movementspeed: 50
+  movementspeed: 3
