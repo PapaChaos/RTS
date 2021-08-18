@@ -12,6 +12,7 @@ Shader "Unlit/Shader-Gameplay"
         _EdgeDetect("Edge Detect Instead?", Float) = 0
         _NormalDepth("Normal Depth", Float) = 3.75
         _NormalEdge("Normal Edge", Float) = 0.85
+        _EmissiveAtCombinedValues("Emissive Combined Value", Float) = 0
         _EmissiveForced("Emissive forced", Float) = 0
     }
     SubShader
@@ -33,6 +34,7 @@ Shader "Unlit/Shader-Gameplay"
         float _NormalDepth;
         float _NormalEdge;
         float _EmissiveForced;
+        float _EmissiveAtCombinedValues;
 
 
         struct Input
@@ -127,9 +129,9 @@ Shader "Unlit/Shader-Gameplay"
             }
             o.Albedo = tintColor.rgb;
             o.Alpha = tintColor.a;
-
             float _checkEmis = tintColor.r+ tintColor.g+tintColor.b;
-            if (_checkEmis > 1.6 || _EmissiveForced > 0.0)
+
+            if ((_EmissiveAtCombinedValues != 0 &&_checkEmis > _EmissiveAtCombinedValues) || _EmissiveForced > 0.0)
                 o.Emission = o.Albedo;
         }
 

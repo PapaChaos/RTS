@@ -14,7 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TableCollectionName: GameObjectsLocale
   m_TableCollectionNameGuidString: c0024429a3bbef347942eebdae01296d
-  m_Entries: []
+  m_Entries:
+  - m_Id: 1836174390824960
+    m_Key: New Entry
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

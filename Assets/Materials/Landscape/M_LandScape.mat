@@ -43,6 +43,8 @@ Material:
     m_Floats:
     - _BorderSize: 0.3
     - _EdgeDetect: 0
+    - _EmissiveAtCombinedValues: 1.6
+    - _EmissiveForced: 0
     - _HeightMax: 10
     - _HeightMin: 0
     - _NormalDepth: 3.75

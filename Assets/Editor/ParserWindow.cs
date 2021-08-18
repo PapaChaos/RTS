@@ -4,15 +4,18 @@ using UnityEditor;
 [ExecuteInEditMode]
 public class ParserWindow : EditorWindow
 {
+    string[] ParsingType = { "TextFile", "JSON" };
+
     [SerializeField]
     TextAsset TextParseTarget;
-    //string[] parseFileTargets; //Will be added later to add multiple files for parsing.
+
     string parseFileTargets = "UnitBaseStats";
-    string folderPath = "Spreadsheets/";
+    string spreadsheetFolderPath = "Spreadsheets/";
+    string JSONFolderPath = "JSON/";
 
     string[] rows;
 
-
+    int menuIndex = 0;
 
     [MenuItem("Window/Parser")]
 	public static void ShowWindow()
@@ -20,22 +23,33 @@ public class ParserWindow : EditorWindow
 		GetWindow<ParserWindow>("Parser");
 	}
 
-	void OnGUI()
-	{
-		GUILayout.Label("Parser",EditorStyles.boldLabel);
-        parseFileTargets = EditorGUILayout.TextField("UnitBaseStats");
-		if (GUILayout.Button("Parse files"))
+    void OnGUI()
+    {
+        GUILayout.Label("Parser", EditorStyles.boldLabel);
+
+        menuIndex = EditorGUILayout.Popup(menuIndex, ParsingType);
+
+        if (menuIndex == 0) 
+        {
+            parseFileTargets = EditorGUILayout.TextField("UnitBaseStats");
+            if (GUILayout.Button("Parse Text File"))
+            {
+                Parse();
+            }
+        }
+        if(menuIndex == 1)
 		{
-            Parse();
-		}
+            parseFileTargets = EditorGUILayout.TextField("Locale");
+            if (GUILayout.Button("Parse JSON"))
+            {
+                Parse();
+            }
+        }
 	}
 
     void Parse()
     {
-       // if(parseFileTargets.Length > 0)
-       // for (int parseTarget = 0; parseTarget < parseFileTargets.Length; parseTarget++)
-       // {
-            TextAsset TextParseTarget = Resources.Load<TextAsset>(folderPath+parseFileTargets);
+            TextAsset TextParseTarget = Resources.Load<TextAsset>(spreadsheetFolderPath+parseFileTargets);
 
             rows = TextParseTarget.text.Split(new char[] {'\n'});
 
@@ -82,6 +96,5 @@ public class ParserWindow : EditorWindow
                 else
                     Debug.LogError($"Parse failed! Error in columns on row {i + 1}/{errorName}!"); //Error on line 4 is on purpose for testing.
             }
-        //}
     }
 }
