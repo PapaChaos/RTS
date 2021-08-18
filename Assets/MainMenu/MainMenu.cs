@@ -49,7 +49,8 @@ public class MainMenu : MonoBehaviour
 	private void Awake()
 	{
 		LoadPlayer();
-
+		SFXVSlider.value = player.SFXVolume;
+		BGMVSlider.value = player.BGMVolume;
 	}
 
 	public void SavePlayer()
@@ -67,12 +68,14 @@ public class MainMenu : MonoBehaviour
 				player.BGMVolume = data.BGMVolume;
 				player.SFXVolume = data.SFXVolume;
 				player.PlayerNick = data.PlayerNick;
+			changeMenu(0);
+
 		}
 		else
 		{
-			menuIndex = 2;
+			changeMenu(2);
 		}
-		changeMenu(menuIndex);
+
 	}
 
 	public void changeMenu(int index)
@@ -110,4 +113,14 @@ public class MainMenu : MonoBehaviour
 		changeMenu(0);
 	}
 
+	public void setBGMValue()
+	{
+		player.BGMVolume = BGMVSlider.value;
+	}
+
+	public void setSFXValue()
+	{
+		player.SFXVolume = SFXVSlider.value;
+
+	}
 }
