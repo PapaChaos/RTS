@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
 
 public class MainMenu : MonoBehaviour
 {
@@ -23,27 +22,43 @@ public class MainMenu : MonoBehaviour
 	[SerializeField]
 	Slider BGMVSlider, SFXVSlider;
 
+	[SerializeField]
+	InterstitialAd interstitialAd;
+
+	[SerializeField]
+	BannerAd bannerAd;
 
 	public void StartGame()
 	{
 		if (!player.firstTimePlay)
 		{
-			//play ad.
+			bannerAd.HideBannerAd();
+			interstitialAd.LoadAd();
 		}
-
-		player.firstTimePlay = false;
-		SaveData.SavePlayer(player);
+		else
+		{
+			player.firstTimePlay = false;
+			SaveData.SavePlayer(player);
+			startGameScene();
+		}
 	}
 	public void Training() 
 	{
 		if (!player.firstTimePlay)
 		{
-			//play ad.
+			bannerAd.HideBannerAd();
+			if (Application.isEditor)
+				trainingScene();
+			else
+			interstitialAd.LoadAd();
 		}
 
-		player.firstTimePlay = false;
-		SaveData.SavePlayer(player);
-		SceneManager.LoadScene(trainingScenePath, LoadSceneMode.Single);
+		else
+		{
+			player.firstTimePlay = false;
+			SaveData.SavePlayer(player);
+			trainingScene();
+		}
 
 	}
 	private void Awake()
@@ -122,5 +137,15 @@ public class MainMenu : MonoBehaviour
 	{
 		player.SFXVolume = SFXVSlider.value;
 
+	}
+
+	public void trainingScene()
+	{
+		SceneManager.LoadScene(trainingScenePath, LoadSceneMode.Single);
+	}
+	void startGameScene()
+	{
+		//change this later when we have finished the tutorial and added an actual game mode.
+		SceneManager.LoadScene(trainingScenePath, LoadSceneMode.Single);
 	}
 }
