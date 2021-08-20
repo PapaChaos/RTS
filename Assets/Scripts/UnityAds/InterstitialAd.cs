@@ -26,15 +26,16 @@ public class InterstitialAd : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsSho
         Advertisement.Load(_adUnitId, this);
     }
 
+    public void OnUnityAdsAdLoaded(string adUnitId)
+    {
+        ShowAd();
+    }
+
     public void ShowAd()
     {
         Advertisement.Show(_adUnitId, this);
     }
 
-    public void OnUnityAdsAdLoaded(string adUnitId)
-    {
-        ShowAd();
-    }
 
     public void OnUnityAdsFailedToLoad(string adUnitId, UnityAdsLoadError error, string message)
     {
@@ -69,7 +70,7 @@ public class InterstitialAd : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsSho
         if(showCompletionState == UnityAdsShowCompletionState.UNKNOWN)
 		{
             Debug.LogWarning("Unity ad Unknown");
-            mm.trainingScene();
+            //mm.trainingScene();
         }
     }
 }

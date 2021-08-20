@@ -30,9 +30,10 @@ public class MainMenu : MonoBehaviour
 
 	public void StartGame()
 	{
+		bannerAd.HideBannerAd();
+
 		if (!player.firstTimePlay)
 		{
-			bannerAd.HideBannerAd();
 			interstitialAd.LoadAd();
 		}
 		else
@@ -44,9 +45,10 @@ public class MainMenu : MonoBehaviour
 	}
 	public void Training() 
 	{
+		bannerAd.HideBannerAd();
+
 		if (!player.firstTimePlay)
 		{
-			bannerAd.HideBannerAd();
 			if (Application.isEditor)
 				trainingScene();
 			else

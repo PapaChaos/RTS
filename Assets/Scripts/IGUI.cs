@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class IGUI : MonoBehaviour
@@ -52,5 +53,10 @@ public class IGUI : MonoBehaviour
 				menuIndex = i;
 			}
 		}
+	}
+
+	public void LeaveGame()
+	{
+		SceneManager.LoadScene("MainMenu");
 	}
 }
