@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 public class CameraController : MonoBehaviour
 {
-    public float panSpeed = 150f;
+    public float panSpeed = 10f;
     public DeviceType deviceType;
     public PlayerInput playerInput;
     [SerializeField]
@@ -32,7 +32,11 @@ public class CameraController : MonoBehaviour
 	}
     ControllerSelected controllerSelected = ControllerSelected.Default;
 
-	private void Awake()
+    public float XLocationminimum = 0, XLocationMax = 1000, ZLocationminimum = 0, ZLocationMax = 1000;
+
+
+
+    private void Awake()
 	{
         pressParticle = GetComponent<PressLocationParticleScript>();
 
@@ -67,7 +71,21 @@ public class CameraController : MonoBehaviour
 
         //Camera Movement
         Vector3 pos = transform.position;
-        pos += new Vector3(playerInput.actions["CameraMovement"].ReadValue<Vector2>().x, 0f, playerInput.actions["CameraMovement"].ReadValue<Vector2>().y);
+        pos += new Vector3(playerInput.actions["CameraMovement"].ReadValue<Vector2>().x*panSpeed, 0f, playerInput.actions["CameraMovement"].ReadValue<Vector2>().y * panSpeed);
+        
+        if(pos.x < XLocationminimum)
+            pos.x = XLocationminimum;
+
+        else if( pos.x > XLocationMax) 
+            pos.x = XLocationMax;
+
+        if (pos.z < ZLocationminimum)
+            pos.z = ZLocationminimum;
+
+        else if (pos.z > ZLocationMax)
+            pos.z = ZLocationMax;
+
+
         transform.position = pos;
 
 

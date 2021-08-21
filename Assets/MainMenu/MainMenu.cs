@@ -150,4 +150,9 @@ public class MainMenu : MonoBehaviour
 		//change this later when we have finished the tutorial and added an actual game mode.
 		SceneManager.LoadScene(trainingScenePath, LoadSceneMode.Single);
 	}
+
+	public void DiscordLink()
+	{
+		Application.OpenURL("https://discord.gg/SwT5esD");
+	}
 }

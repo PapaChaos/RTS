@@ -11,7 +11,7 @@ Material:
   m_Shader: {fileID: 4800000, guid: 1b44d01332f63c04bbe55ccf6657e90d, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -62,14 +62,18 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _EdgeDetect: 1
+    - _EdgeDetect: 0
+    - _EmissiveAtCombinedValues: 0
+    - _EmissiveForced: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _HeightMax: 20
-    - _HeightMin: 0.5
+    - _HeightMax: 50
+    - _HeightMin: 0
     - _Metallic: 0
     - _Mode: 0
+    - _NormalDepth: 3.75
+    - _NormalEdge: 0.85
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
@@ -78,9 +82,9 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _BorderColor: {r: 3.0000002, g: 3.0000002, b: 3.0000002, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _BorderColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Color: {r: 0.1882353, g: 0.1882353, b: 0.1882353, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _InaccessibleColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MaxColor: {r: 0.20999995, g: 0.47999996, b: 0.65999997, a: 1}
+    - _MaxColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

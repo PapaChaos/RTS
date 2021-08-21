@@ -63,11 +63,12 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EdgeDetect: 0
+    - _EmissiveAtCombinedValues: 0
     - _EmissiveForced: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _HeightMax: 20
+    - _HeightMax: 50
     - _HeightMin: 0.5
     - _Metallic: 0
     - _Mode: 0

@@ -8945,7 +8945,7 @@ GameObject:
   - component: {fileID: 963194235}
   - component: {fileID: 963194237}
   - component: {fileID: 963194236}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -9029,16 +9029,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1acb6f0e07c9f7449872ec3abca36753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panSpeed: 150
+  panSpeed: 10
   deviceType: 0
   playerInput: {fileID: 963194232}
   debug: 0
-  FI: {fileID: 0}
-  FR: {fileID: 0}
-  HQ: {fileID: 0}
+  FI: {fileID: 963194234}
+  FR: {fileID: 1796942497}
+  HQ: {fileID: 1796942496}
   PlayerUnit: {fileID: 0}
   PressLoc: {x: 0, y: 0, z: 0}
   camera: {fileID: 963194227}
+  XLocationminimum: 0
+  XLocationMax: 1000
+  ZLocationminimum: 0
+  ZLocationMax: 1000
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9054,8 +9058,8 @@ MonoBehaviour:
   volumeTrigger: {fileID: 963194228}
   volumeLayer:
     serializedVersion: 2
-    m_Bits: 2147483647
-  stopNaNPropagation: 1
+    m_Bits: 8
+  stopNaNPropagation: 0
   finalBlitToCameraTarget: 0
   antialiasingMode: 0
   temporalAntialiasing:
@@ -9064,7 +9068,7 @@ MonoBehaviour:
     stationaryBlending: 0.95
     motionBlending: 0.85
   subpixelMorphologicalAntialiasing:
-    quality: 2
+    quality: 0
   fastApproximateAntialiasing:
     fastMode: 0
     keepAlpha: 0
@@ -10473,7 +10477,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1239032706}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 284.2289, y: 173.18436, z: 122.17968}
+  m_LocalPosition: {x: 0, y: 0, z: 1000}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -11505,6 +11509,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7122587416189115740, guid: 143a1f0373f850b4c82c030db32e59bb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2998da26ab85ad74fa73497d6a92fa01, type: 2}
     - target: {fileID: 9030875961883907354, guid: 143a1f0373f850b4c82c030db32e59bb, type: 3}
       propertyPath: m_Name
       value: BarracksEastP2
@@ -12110,6 +12118,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7122587416189115740, guid: 143a1f0373f850b4c82c030db32e59bb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2998da26ab85ad74fa73497d6a92fa01, type: 2}
     - target: {fileID: 9030875961883907354, guid: 143a1f0373f850b4c82c030db32e59bb, type: 3}
       propertyPath: m_Name
       value: BaracksWestP2
@@ -12756,7 +12768,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1424991}
   m_HandleRect: {fileID: 1424990}
   m_Direction: 2
-  m_Value: 0.9999998
+  m_Value: 1
   m_Size: 0.6666667
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -12836,6 +12848,28 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1796942496 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -846052661742855289, guid: a2687956459fdfd43849cf63bf5d910b, type: 3}
+  m_PrefabInstance: {fileID: 8117391319504421948}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb606b6a9c9562a4490a80a34f39bf86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1796942497 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5223731973738024065, guid: a2687956459fdfd43849cf63bf5d910b, type: 3}
+  m_PrefabInstance: {fileID: 8117391319504421948}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05b4087b4bdebaa42b9c266f2d497461, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1800440863
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13682,7 +13716,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 95
+  m_StaticEditorFlags: 94
   m_IsActive: 1
 --- !u!154 &2131604367
 TerrainCollider:
@@ -13717,18 +13751,18 @@ Terrain:
   m_ShadowCastingMode: 0
   m_DrawHeightmap: 1
   m_DrawInstanced: 0
-  m_DrawTreesAndFoliage: 1
+  m_DrawTreesAndFoliage: 0
   m_StaticShadowCaster: 0
-  m_ReflectionProbeUsage: 1
+  m_ReflectionProbeUsage: 0
   m_MaterialTemplate: {fileID: 2100000, guid: 6da35bb852dfb7c48a0c24afaa9cc73f, type: 2}
-  m_BakeLightProbesForTrees: 1
+  m_BakeLightProbesForTrees: 0
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 1
   m_ScaleInLightmap: 0.0256
   m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000, type: 0}
   m_GroupingID: 0
   m_RenderingLayerMask: 1
-  m_AllowAutoConnect: 1
+  m_AllowAutoConnect: 0
 --- !u!4 &2131604369
 Transform:
   m_ObjectHideFlags: 0
