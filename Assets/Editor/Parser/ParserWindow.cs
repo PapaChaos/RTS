@@ -11,7 +11,7 @@ public class ParserWindow : EditorWindow
 
     string parseFileTargets = "UnitBaseStats";
     string spreadsheetFolderPath = "Spreadsheets/";
-    string JSONFolderPath = "JSON/";
+    //string JSONFolderPath = "JSON/";
 
     string[] rows;
 
